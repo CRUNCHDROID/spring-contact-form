@@ -10,7 +10,6 @@ import javax.validation.constraints.Pattern;
 public class Contact {
 
     @NotBlank
-//    @Pattern(regexp = "[a-zA-Z]", message = "This field must contain only letters")
     @Pattern(regexp = "[\\p{L} '-]+", message = "{net.crunchdroid.constraints.Name.message}")
     private String name;
 
