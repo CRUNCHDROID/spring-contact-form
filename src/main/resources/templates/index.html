@@ -405,7 +405,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div data-th-class="${success}?'alert alert-success':'alert alert-warning'" data-th-text="${message}" role="alert"></div>
+                <div role="alert" data-th-if="${message}" data-th-text="${message}" data-th-class="${classCss}"></div>
                 <form name="sentMessage" id="contactForm" novalidate data-th-object="${contact}" method="post" data-th-action="@{/}">
                     <div class="row">
                         <div class="col-md-6">

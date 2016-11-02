@@ -33,12 +33,13 @@ public class MailComponent {
         mailMessage.setFrom(contact.getEmail());
         mailMessage.setSubject(contact.getSubject());
         mailMessage.setText(contact.getMessage());
-        mailMessage.setTo("contact@crunchdroid.net");
+        mailMessage.setTo("email@email.com"); // if you use Gmail do not forget to put your personal address
 
         try {
             mailSender.send(mailMessage);
             return true;
         } catch (MailException e) {
+            System.err.println(e.getMessage());
             return false;
         }
     }
@@ -52,13 +53,14 @@ public class MailComponent {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mailMessage = new MimeMessageHelper(mimeMessage);
         try {
-            mailMessage.setTo("contact@crunchdroid.net");
+            mailMessage.setTo("email@email.com"); // if you use Gmail do not forget to put your personal address
             mailMessage.setFrom(contact.getEmail());
             mailMessage.setSubject(contact.getSubject());
             mailMessage.setText(messageHtml, true);
             javaMailSender.send(mimeMessage);
             return true;
         } catch (MessagingException | MailException e) {
+            System.err.println(e.getMessage());
             return false;
         }
     }
